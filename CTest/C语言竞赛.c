@@ -15,8 +15,8 @@ int main(int argc,const char argv[])
 	int i = 0;
 	int N = 0;
 	int K = 0;
-	int *arrayMembers;
-	int *arraySearch;
+	int *arrayMembers;//获奖名单
+	int *arraySearch;//需要查询的名单
 	char prize[20] = "\0";
 	int memberTemp = 0;
 
@@ -24,44 +24,22 @@ int main(int argc,const char argv[])
 	scanf_s("%d", &N);
 	arrayMembers = (int*)malloc(sizeof(int)*N);
 	for ( i = 0; i < N; i++)
-	{
 		scanf_s("%d", &arrayMembers[i]);
-	}
 
 	//需查询人员输入
 	scanf_s("%d", &K);
 	arraySearch = (int*)malloc(sizeof(int)*K);
 	for (i = 0; i < K; i++)
-	{
 		scanf_s("%d", &arraySearch[i]);
-	}
 
 	start = clock();
 
-	printf("前\n");
-	for (i = 0; i < N; i++)
-	{
-		printf("%d\t", arrayMembers[i]);
-		printf("%d\n", arraySearch[i]);
-
-	}
-	printf("\n");
-
-	prizeFct(arrayMembers, arraySearch, N);
-
-	printf("后\n");
-	for (i = 0; i < N; i++)
-	{
-		printf("%d\t", arrayMembers[i]);
-		printf("%d\n", arraySearch[i]);
-
-	}
-	printf("\n");
+	prizeFct(arrayMembers, arraySearch, N);//做判断
 
 	for ( i = 0; i < N; i++)
 	{
 		memberTemp = arraySearch[i];
-		award(prize, memberTemp);
+		award(prize, memberTemp);//更改获得奖项
 		printf("%04d: %s\n", *(arraySearch+i)/10000,prize);
 		//虽然对arraySearch的数值精细行了修改，但是只让他打印4位，对读者而言，依旧是真值
 	}
@@ -86,9 +64,7 @@ void prizeFct(int* arrayMembers, int* arraySearch, int N)
 	for (i = 0; i < N; i++)
 	{
 		if (*(arraySearch + i)>9999)
-		{
 			continue;
-		}
 
 		rank = 0;
 
@@ -166,9 +142,8 @@ void award(char* prize, int memberTemp)
 int judgePrime(int number)
 {
 	if (number == 2)
-	{
 		return 1;
-	}
+
 	int flag = 1;
 
 	for (int a = 2; a < number; a++)
