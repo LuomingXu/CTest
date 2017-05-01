@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __JUDGE_H__
 #define __JUDGE_H__
 

@@ -78,7 +78,7 @@ int main(int argc, const char* agrv[])
 
 	finish = clock();
 	duration = (double)(finish - start) / CLOCKS_PER_SEC;
-	printf(__FUNCTION__":Time:%fms\n", duration * 10000);
+	printf(__FUNCTION__":Time:%lfms\n", duration * 10000);
 
 	system("pause");
 	return 0;
